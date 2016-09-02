@@ -28,23 +28,22 @@ start = time.time()
 Graph = graph()
 revGraph = graph()
 
-fin = open("test.txt")
+fin = open("SCC.txt")
 while True:
     line = fin.readline()
     if not line:
         break
     edge = [int(i) for i in line.split()]
-    if len(Graph.vertice) < edge[0]:
-        v = vertice()
-        v.next.append(edge[1] - 1)
-        Graph.vertice.append(v)
 
+    while len(Graph.vertice) < edge[0]:
+        v = vertice()
         rv = vertice()
+        Graph.vertice.append(v)
         revGraph.vertice.append(rv)
-    else:
-        index = edge[0] - 1
-        next = edge[1] - 1
-        Graph.vertice[index].next.append(next)
+
+    index = edge[0] - 1
+    next = edge[1] - 1
+    Graph.vertice[index].next.append(next)
 
 totalV = len(Graph.vertice)
 for i in range(totalV):
