@@ -42,7 +42,7 @@ start0 = time.time()
 Graph = graph()
 revGraph = graph()
 
-fin = open('SCC.txt', 'rt')
+fin = open('test.txt', 'rt')
 while True:
     line = fin.readline()
     if not line:
