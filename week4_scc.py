@@ -29,7 +29,7 @@ start = time.time()
 Graph = graph()
 revGraph = graph()
 
-fin = open("test.txt")
+fin = open('test.txt', 'rt')
 while True:
     line = fin.readline()
     if not line:
@@ -45,6 +45,7 @@ while True:
     index = edge[0] - 1
     next = edge[1] - 1
     Graph.vertice[index].next.append(next)
+fin.close()
 
 totalV = len(Graph.vertice)
 for i in range(totalV):
