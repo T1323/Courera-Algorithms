@@ -33,10 +33,11 @@ def heap_del(heap, index):
     last = len(heap) - 1
     [heap[last], heap[index]] = [heap[index], heap[last]]
     heap.remove(heap[last])
+    last -= 1
     n = index
-    while ((n + 1) * 2 < last - 1 and heap[n].dist > heap[(n + 1) * 2].dist) or ((n + 1) * 2 - 1 < last - 1 and heap[n].dist > heap[(n + 1) * 2 - 1].dist):
+    while ((n + 1) * 2 < last and heap[n].dist > heap[(n + 1) * 2].dist) or ((n + 1) * 2 - 1 < last and heap[n].dist > heap[(n + 1) * 2 - 1].dist):
         sc = (n + 1) * 2 - 1
-        if heap[(n + 1) * 2].dist < heap[(n + 1) * 2 -1].dist:
+        if (n + 1) * 2 < last and heap[(n + 1) * 2].dist < heap[(n + 1) * 2 -1].dist:
             sc = (n + 1) * 2
         [heap[sc], heap[n]] = [heap[n], heap[sc]]
         n = sc
